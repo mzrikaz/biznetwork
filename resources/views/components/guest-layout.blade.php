@@ -13,11 +13,11 @@
 
     <header class="header">
         <div class="w-7xl mx-auto">
-            <h1 class="text-2xl font-bold">{{ config('app.name') }}</h1>
+            <h1 class="text-2xl font-bold"><a href="{{ config('app.url') }}">{{ config('app.name') }}</a></h1>
         </div>
     </header>
 
-    <main class="w-full grid place-items-center h-[calc(100vh-64px)]">
+    <main class="w-full grid place-items-center h-[calc(100vh-4rem)]">
         {{ $slot }}
     </main>
     
