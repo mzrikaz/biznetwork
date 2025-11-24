@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="It's a business networking platform.">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $title }} - {{  config('app.name') }}</title>
+    <title>{{ $title }} - {{ config('app.name') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -19,7 +19,8 @@
                 <div class="flex h-16 items-center justify-between">
                     <div class="flex items-center">
                         <div class="shrink-0">
-                            <h1 class="text-2xl font-bold"><a href="{{ config('app.url') }}">{{ config('app.name') }}</a></h1>
+                            <h1 class="text-2xl font-bold"><a
+                                    href="{{ config('app.url') }}">{{ config('app.name') }}</a></h1>
                         </div>
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
@@ -155,6 +156,9 @@
         </header>
         <main>
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                @session('success')
+                    <div class="bg-green-500 text-white p-2 mb-4">{{ session('success') }}</div>
+                @endsession
                 {{ $slot }}
             </div>
         </main>

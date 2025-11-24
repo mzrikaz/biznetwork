@@ -19,8 +19,10 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::view('/dashboard', 'dashboard.index')->name('dashboard');
+    Route::get('/dashboard', [App\Http\Controllers\BusinessController::class, 'index'])->name('dashboard');
     Route::post('/logout', LogoutController::class)->name('logout');
 });
 
+Route::get('businesses/create', [App\Http\Controllers\BusinessController::class, 'create'])->name('businesses.create');
+Route::post('businesses', [App\Http\Controllers\BusinessController::class, 'store'])->name('businesses.store');
 Route::get('{business:slug}', [App\Http\Controllers\BusinessController::class, 'show'])->name('businesses.show');
